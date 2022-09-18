@@ -12,11 +12,11 @@
 
 (recursiveF 5)
 
-(define (iterativeStep a b c n)
-  (cond ((= n 2) c)
-    (else (iterativeStep b c (+ c (* 2 b) (* 3 a)) (- n 1)))))
-
 (define (iterativeF n)
   (iterativeStep 0 1 2 n))
+  
+  (define (iterativeStep a b c n)
+    (cond ((= n 2) c)
+      (else (iterativeStep b c (+ c (* 2 b) (* 3 a)) (- n 1)))))
 
 (iterativeF 5)

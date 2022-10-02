@@ -17,6 +17,6 @@
   
   (define (iterativeStep a b c n)
     (cond ((= n 2) c)
-      (else (iterativeStep b c (+ c (* 2 b) (* 3 a)) (- n 1)))))
+          (else (iterativeStep b c (+ c (* 2 b) (* 3 a)) (- n 1)))))
 
 (iterativeF 5)

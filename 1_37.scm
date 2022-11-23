@@ -2,9 +2,20 @@
 
 ; Finite continued fraction procedure approximating the golden ratio to 4 decimal places
 
-(define (continuedFraction n d k)
+(define (continuedFractionRecursive n d k)
   (if (= k 0)
       (/ (n k) (d k))
-      (+ (/ (n k) (d k)) (continuedFraction n d (- k 1)))))
+      (/ (n k) (+ (d k) (continuedFractionRecursive n d (- k 1))))))
 
-(continuedFraction (lambda (i) 1.0) (lambda (i) 1.0) 20)
+(continuedFractionRecursive (lambda (i) 1.0) (lambda (i) 1.0) 40)
+
+(define (continuedFractionIterative n d k)
+  (define (next prev)
+    (/ (n k) (+ (d k) prev)))
+  (define (iter i currentValue next)
+    (if (> i k)
+        (next currentValue)
+        (iter (+ i 1) (next currentValue) next)))
+  (iter 0 (/ (n k) (d k)) next))
+
+(continuedFractionIterative (lambda (i) 1.0) (lambda (i) 1.0) 40)

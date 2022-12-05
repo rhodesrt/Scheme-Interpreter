@@ -21,7 +21,7 @@
   (cdr segment))
 
 (define (midPoint segment)
-  (point (/ (+ (getX (getStart segment)) (getX (getEnd segment))) 2)))
+  (point (/ (+ (getX (getStart segment)) (getX (getEnd segment))) 2) (/ (+ (getY (getStart segment)) (getY (getEnd segment))) 2)))
 
 (define (printPoint point)
   (newline)
@@ -34,6 +34,6 @@
 (define testSegment
   (segment (point 1 1) (point 3 3)))
 
-(getStart segment)
-(getEnd segment)
-(midPoint segment)
+(getStart testSegment)
+(getEnd testSegment)
+(midPoint testSegment)

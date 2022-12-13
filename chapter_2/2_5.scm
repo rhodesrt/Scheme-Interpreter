@@ -21,8 +21,8 @@
 (define (car x)
   (evenIter x 0))
 
-(define testValue (construct 2 3))
+(define secondTestValue (construct 13 27))
 
-(cdr testValue)
+(cdr secondTestValue)
 
-(car testValue)
+(car secondTestValue)
